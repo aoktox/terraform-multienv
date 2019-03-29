@@ -1,6 +1,5 @@
-locals {
-  environment = "${lookup(var.environment_map, terraform.workspace, "dev")}"
-  vm_size     = "${lookup(var.vm_size_map, local.environment)}"
+resource "random_id" "id" {
+  byte_length = 8
 }
 
 output "current_workspace" {
@@ -8,9 +7,13 @@ output "current_workspace" {
 }
 
 output "environment" {
-  value = "${local.environment}"
+  value = "${var.environment}"
 }
 
 output "vm_size" {
-  value = "${local.vm_size}"
+  value = "${var.vm_size}"
+}
+
+output "random_val" {
+  value = "${random_id.id.hex}"
 }
