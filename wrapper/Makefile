@@ -33,7 +33,7 @@ plan: prep ## Plan an execution
 	@terraform plan	-var-file="$(VARS)"
 
 apply: prep ## Run an execution
-	@terraform plan	-var-file="$(VARS)"
+	@terraform apply -var-file="$(VARS)"
 
 destroy: prep ## Destroy everything
-	@terraform plan	-var-file="$(VARS)"
+	@terraform destroy -var-file="$(VARS)"
